@@ -1,8 +1,8 @@
-package com.ricemarch.anyth1nglr3arn.mq.rabbitmq;
+package com.ricemarch.anyth1nglr3arn.mq.rabbitmq.basic;
 
 import com.rabbitmq.client.*;
+import com.ricemarch.anyth1nglr3arn.mq.rabbitmq.RabbitMqProperties;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -16,10 +16,12 @@ public class RabbitMqRecv {
 
     public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("test.ricemarch.com");
-        factory.setUsername("test");
-        factory.setPassword("****");//null password
-        factory.setPort(5672);
+
+        RabbitMqProperties rabbitMqProperties = new RabbitMqProperties();
+        factory.setHost(rabbitMqProperties.getHost());
+        factory.setUsername(rabbitMqProperties.getUserName());
+        factory.setPassword(rabbitMqProperties.getPassword());
+        factory.setPort(rabbitMqProperties.getPort());
 
         /*
         Why don't we use a try-with-resource statement to automatically close the channel and the connection?

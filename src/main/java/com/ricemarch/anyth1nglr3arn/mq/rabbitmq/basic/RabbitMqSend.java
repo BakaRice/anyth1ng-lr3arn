@@ -1,8 +1,9 @@
-package com.ricemarch.anyth1nglr3arn.mq.rabbitmq;
+package com.ricemarch.anyth1nglr3arn.mq.rabbitmq.basic;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.ricemarch.anyth1nglr3arn.mq.rabbitmq.RabbitMqProperties;
 
 import java.nio.charset.StandardCharsets;
 
@@ -24,10 +25,12 @@ public class RabbitMqSend {
           factory have a default value about the host 'DEFAULT_HOST',if you look the source from the factory, you will find the default host is 'localhost'
          */
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("test.ricemarch.com");
-        factory.setUsername("test");
-        factory.setPassword("****");//null password
-        factory.setPort(5672);
+        RabbitMqProperties rabbitMqProperties = new RabbitMqProperties();
+        factory.setHost(rabbitMqProperties.getHost());
+        factory.setUsername(rabbitMqProperties.getUserName());
+        factory.setPassword(rabbitMqProperties.getPassword());
+        factory.setPort(rabbitMqProperties.getPort());
+
         /*
           next we create a channel,which is where most of the API for getting things done resides.
           Note we can use a try-with-resources statement because both {@link Connection} and {@link Channel} implement {@link java.io.Closeable}.
