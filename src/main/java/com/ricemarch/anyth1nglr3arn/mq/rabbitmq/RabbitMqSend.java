@@ -25,6 +25,9 @@ public class RabbitMqSend {
          */
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("test.ricemarch.com");
+        factory.setUsername("test");
+        factory.setPassword("****");//null password
+        factory.setPort(5672);
         /*
           next we create a channel,which is where most of the API for getting things done resides.
           Note we can use a try-with-resources statement because both {@link Connection} and {@link Channel} implement {@link java.io.Closeable}.
