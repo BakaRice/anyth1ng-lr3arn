@@ -34,4 +34,34 @@ public class SendMessageController {
         rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
         return "SENT OK";
     }
+
+    @GetMapping("/sendTopicMessage01")
+    public String sendTopicMessage1() {
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message:M A N";
+        String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Map<String, Object> manMap = Map.of(
+                "messageId", messageId,
+                "messageData", messageData,
+                "createTime", createTime
+        );
+        rabbitTemplate.convertAndSend("topicExchange", "topic.man", manMap);
+        return "SENT OK";
+    }
+
+    @GetMapping("/sendTopicMessage02")
+    public String sendTopicMessage2() {
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message:woman is all";
+        String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Map<String, Object> manMap = Map.of(
+                "messageId", messageId,
+                "messageData", messageData,
+                "createTime", createTime
+        );
+        rabbitTemplate.convertAndSend("topicExchange", "topic.woman", manMap);
+        return "SENT OK";
+    }
+
+
 }
