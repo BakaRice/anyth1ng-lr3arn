@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/rabbitmq-consumer/src/main/resources/application-local.properties
+/rabbitmq-provider/src/main/resources/application-local.properties
