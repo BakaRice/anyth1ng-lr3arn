@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.ricemarch.accessdata.repository")
+@MapperScan("com.ricemarch.accessdata.mapper")
 public class AccessDataApplication {
 
     public static void main(String[] args) {

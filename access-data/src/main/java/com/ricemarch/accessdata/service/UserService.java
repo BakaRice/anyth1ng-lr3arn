@@ -1,7 +1,7 @@
 package com.ricemarch.accessdata.service;
 
-import com.ricemarch.accessdata.dao.UserDao;
-import com.ricemarch.accessdata.repository.TestRepository;
+import com.ricemarch.accessdata.entity.User;
+import com.ricemarch.accessdata.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +15,10 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private TestRepository testRepository;
+    private UserMapper userMapper;
 
-    public List<UserDao> getList(){
-        List<UserDao> userDaos = testRepository.listAll("");
-        return userDaos;
+    public List<User> getList() {
+        List<User> all = userMapper.findAll();
+        return all;
     }
 }

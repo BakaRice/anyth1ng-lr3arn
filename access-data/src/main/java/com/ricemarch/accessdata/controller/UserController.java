@@ -1,6 +1,6 @@
 package com.ricemarch.accessdata.controller;
 
-import com.ricemarch.accessdata.dao.UserDao;
+import com.ricemarch.accessdata.entity.User;
 import com.ricemarch.accessdata.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +19,8 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/list")
-    public List<UserDao> list() {
-        List<UserDao> list = userService.getList();
+    public List<User> list() {
+        List<User> list = userService.getList();
         return list;
     }
 }
