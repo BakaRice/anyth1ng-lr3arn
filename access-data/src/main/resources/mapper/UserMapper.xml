@@ -4,6 +4,6 @@
     <select id="findAll" resultType="com.ricemarch.accessdata.entity.User">
         select *
         from user
-where id ='1'
+        where id = '1'
     </select>
 </mapper>
