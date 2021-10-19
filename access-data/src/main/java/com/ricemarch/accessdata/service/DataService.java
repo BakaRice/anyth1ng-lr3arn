@@ -4,6 +4,7 @@ package com.ricemarch.accessdata.service;
  * @mbg.generated generator on Tue Oct 19 10:03:44 CST 2021
  */
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ricemarch.accessdata.entity.Data;
 
 public interface DataService {

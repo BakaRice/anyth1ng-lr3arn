@@ -1,5 +1,6 @@
 package com.ricemarch.accessdata.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ricemarch.accessdata.entity.User;
 import com.ricemarch.accessdata.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;

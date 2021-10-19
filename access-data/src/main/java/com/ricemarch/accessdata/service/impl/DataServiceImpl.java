@@ -1,11 +1,12 @@
 
-package com.ricemarch.accessdata.service;
+package com.ricemarch.accessdata.service.impl;
 /**
  * @mbg.generated generator on Tue Oct 19 10:03:44 CST 2021
  */
 
 import com.ricemarch.accessdata.entity.Data;
 import com.ricemarch.accessdata.mapper.DataMapper;
+import com.ricemarch.accessdata.service.DataService;
 import org.springframework.stereotype.Service;
 
 @Service
