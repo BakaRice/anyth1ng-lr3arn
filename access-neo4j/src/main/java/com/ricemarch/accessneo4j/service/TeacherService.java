@@ -1,5 +1,6 @@
 package com.ricemarch.accessneo4j.service;
 
+import com.alibaba.fastjson.JSON;
 import com.ricemarch.accessneo4j.entity.Course;
 import com.ricemarch.accessneo4j.entity.Teacher;
 import com.ricemarch.accessneo4j.entity.TeacherCourse;
@@ -70,13 +71,13 @@ public class TeacherService {
     }
 
     public void saveRelation(List<TeacherCourse> teacherCourseList) {
+        //过滤出courseId,teacherId
         List<String> cidList = teacherCourseList.stream().map(TeacherCourse::getCid).collect(Collectors.toList());
         List<String> tidList = teacherCourseList.stream().map(TeacherCourse::getTid).collect(Collectors.toList());
-
+        //id进行去重
         List<String> disCidList = new ArrayList<>();
         List<String> disTidList = new ArrayList<>();
-        Map<String, String> c2t = new HashMap<>();
-        Map<String, String> t2c = new HashMap<>();
+
         Iterator<String> cidIterator = cidList.iterator();
         while (cidIterator.hasNext()) {
             String next = cidIterator.next();
@@ -92,18 +93,25 @@ public class TeacherService {
             }
         }
         Map<String, Course> courseMap = new HashMap<>();
+        int curr = 0;
         for (String s : disCidList) {
             Course byCourseId = courseRepository.findByCourseId(s);
             courseMap.put(byCourseId.getCourseId(), byCourseId);
+            log.info("[{}]:{}->{}", curr++, s, JSON.toJSON(byCourseId));
         }
 
+
+        Map<String, String> c2t = new HashMap<>();
+        Map<String, String> t2c = new HashMap<>();
         Map<String, Teacher> teacherMap = new HashMap<>();
 
         List<Teacher> teacherList = new ArrayList<>();
         for (String s : disTidList) {
+            log.info("teacher:{}", s);
             Teacher byTeacherId = teacherRepository.findByTeacherId(s);
-            teacherMap.put(byTeacherId.getTeacherId(), byTeacherId);
+            teacherMap.put(s, byTeacherId);
             teacherList.add(byTeacherId);
+
         }
 
         for (String tid : tidList) {

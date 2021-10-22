@@ -27,15 +27,15 @@ public class Course {
 
     private String coreId;
 
-    public Course(String courseId, String name) {
-        this.courseId = courseId;
-        this.name = name;
-    }
-
-
-    public Course(String courseId, String name, String about) {
-        this.courseId = courseId;
-        this.name = name;
-        this.about = about;
-    }
+    // public Course(String courseId, String name) {
+    //     this.courseId = courseId;
+    //     this.name = name;
+    // }
+    //
+    //
+    // public Course(String courseId, String name, String about) {
+    //     this.courseId = courseId;
+    //     this.name = name;
+    //     this.about = about;
+    // }
 }

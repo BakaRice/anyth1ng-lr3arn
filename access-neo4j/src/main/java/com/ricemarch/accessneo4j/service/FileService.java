@@ -52,7 +52,10 @@ public class FileService {
     private List<Course> convertCsvCourse(List<CourseCsv> courseCsvList) {
         List<Course> courseList = new ArrayList<>();
         for (CourseCsv courseCsv : courseCsvList) {
-            Course course = new Course(courseCsv.getId(), courseCsv.getName());
+            Course course = new Course();
+            //courseCsv.getId(), courseCsv.getName()
+            course.setCourseId(courseCsv.getId());
+            course.setName(courseCsv.getName());
             courseList.add(course);
         }
         return courseList;
