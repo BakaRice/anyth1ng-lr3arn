@@ -3,16 +3,12 @@ package com.ricemarch.accesslambda;
 import com.ricemarch.accesslambda.dto.Track;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
 
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
-import java.util.logging.Level;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -48,6 +44,7 @@ public class lambdaTest {
 
     @Test
     public void overloadTest() {
+        //Lambda can be replaced with method reference
         overloadedMethod((x, y) -> x + y);
     }
 
@@ -74,14 +71,6 @@ public class lambdaTest {
     }
 
 
-
-
-
-
-
-
-
-
     @Test
     public void flatMap() {
         List<Integer> together = Stream.of(asList(1, 2), asList(3, 4)).flatMap(Collection::stream).collect(Collectors.toList());
@@ -94,6 +83,7 @@ public class lambdaTest {
     public void MaxMin() {
         List<Track> tracks = asList(new Track("Bakai", 524), new Track("Violets for Your Furs", 378), new Track("Time Was", 451));
         Track shortestTrack = tracks.stream().min(Comparator.comparing(track -> track.getLength())).get();
+        //Lambda can be replaced with method reference
     }
 
 
