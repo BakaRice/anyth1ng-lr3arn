@@ -19,7 +19,7 @@ import static java.util.Arrays.asList;
  * @since 2021/11/23
  */
 @Slf4j
-public class lambdaTest {
+public class LambdaTest {
 
     //指定lambda表达式的最小的类型
 
