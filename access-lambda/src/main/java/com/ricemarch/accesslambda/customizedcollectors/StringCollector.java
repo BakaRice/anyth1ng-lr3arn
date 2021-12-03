@@ -29,16 +29,19 @@ public class StringCollector implements Collector<String, StringCombiner, String
 
     @Override
     public Supplier<StringCombiner> supplier() {
+        //supplier  工厂方法 用来创建容器
         return () -> new StringCombiner(delim, prefix, suffix);
     }
 
     @Override
     public BiConsumer<StringCombiner, String> accumulator() {
+        // 和 reduce操作的第二个参数一样，结合之前操作的结果和当前值，生成并返回新的值
         return StringCombiner::add;
     }
 
     @Override
     public BinaryOperator<StringCombiner> combiner() {
+        // 和 reduce的第三个方法很像
         return StringCombiner::merge;
     }
 
