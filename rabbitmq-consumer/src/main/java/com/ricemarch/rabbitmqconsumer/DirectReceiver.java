@@ -19,17 +19,17 @@ import java.util.Map;
 public class DirectReceiver {
 
     @RabbitListener(queues = "TestDirectQueue")
-    public void process0(Map<?,?> testMessage) {
+    public void process0(Map<?, ?> testMessage) {
         log.info("[0]DirectReceiver消费者收到消息:" + testMessage.toString());
     }
 
     @RabbitListener(queues = "TestDirectQueue")
-    public void process1(Map<?,?> testMessage) {
+    public void process1(Map<?, ?> testMessage) {
         log.info("[1]DirectReceiver消费者收到消息:" + testMessage.toString());
     }
 
     @RabbitListener(queues = "TestDirectQueue")
-    public void process2(Map<?,?> testMessage) {
+    public void process2(Map<?, ?> testMessage) {
         log.info("[2]DirectReceiver消费者收到消息:" + testMessage.toString());
     }
 }

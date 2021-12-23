@@ -1,11 +1,12 @@
 # anyth1ng-lr3arn
 
 #### Description
+
 > adopt-openj9-11 version 11.0.10  
 > Spring Boot 2.5.5  
 > Mybatis  
 > Mybatis-plus  
-> Neo4j 4.3.3 Community  
+> Neo4j 4.3.3 Community
 
 #### Software Architecture
 

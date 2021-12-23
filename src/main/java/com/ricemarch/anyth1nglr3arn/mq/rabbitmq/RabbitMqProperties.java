@@ -22,5 +22,4 @@ public class RabbitMqProperties {
     private int port = 5672;
 
 
-
 }

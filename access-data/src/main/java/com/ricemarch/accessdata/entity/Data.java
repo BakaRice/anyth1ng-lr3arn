@@ -3,27 +3,27 @@ package com.ricemarch.accessdata.entity;
 import java.util.Date;
 
 /**
-* 数据表
-*/
+ * 数据表
+ */
 public class Data {
     /**
-    * 数据记录id
-    */
+     * 数据记录id
+     */
     private Long id;
 
     /**
-    * 当前hash值
-    */
+     * 当前hash值
+     */
     private String hash;
 
     /**
-    * 前hash值
-    */
+     * 前hash值
+     */
     private String previousHash;
 
     /**
-    * 文件hash值
-    */
+     * 文件hash值
+     */
     private String fileHash;
 
     private String send;
@@ -37,18 +37,18 @@ public class Data {
     private Date updateTime;
 
     /**
-    * 创建人
-    */
+     * 创建人
+     */
     private String createBy;
 
     /**
-    * 修人
-    */
+     * 修人
+     */
     private String updateBy;
 
     /**
-    * 是否已经删除
-    */
+     * 是否已经删除
+     */
     private Integer isDelete;
 
     public Long getId() {

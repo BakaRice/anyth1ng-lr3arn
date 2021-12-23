@@ -74,7 +74,6 @@ public class lambdaTest {
     @Test
     public void flatMap() {
         List<Integer> together = Stream.of(asList(1, 2), asList(3, 4)).flatMap(Collection::stream).collect(Collectors.toList());
-
         long reduce = together.stream().mapToLong(Integer::longValue).reduce(0, Long::sum);
         assert asList(1, 2, 3, 4).equals(together);
     }
@@ -91,7 +90,5 @@ public class lambdaTest {
     public void Logger() {
         MyLogger myLogger = new MyLogger();
         myLogger.debug(() -> "HI12221");
-
-
     }
 }
